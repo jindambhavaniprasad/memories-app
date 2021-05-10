@@ -3,5 +3,7 @@ export const actionTypes = {
     CREATE: 'CREATE',
     UPDATE: 'UPDATE',
     DELETE: 'DELETE',
-    LIKE: 'LIKE'
+    LIKE: 'LIKE',
+    AUTH: 'AUTH',
+    LOGOUT: 'LOGOUT'
 }

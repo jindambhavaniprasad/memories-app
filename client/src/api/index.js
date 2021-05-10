@@ -1,13 +1,32 @@
 import axios from 'axios'
 
-const url = 'https://memories-lite-project.herokuapp.com/posts';
+const API = axios.create({ baseURL: 'http://localhost:5000' })
 
-export const fetchPosts = () => axios.get(url);
+API.interceptors.request.use((req) => {
+    console.log(localStorage.getItem('profile'));
+    if (localStorage.getItem('profile')) {
+        req.headers.Authorization = `Bearer ${JSON.parse(localStorage.getItem('profile')).token}`;
+        console.log(req.headers.Authorization)
+    }
 
-export const createPost = (newPost) => axios.post(url, newPost)
+    return req;
+});
 
-export const updatePost = (id,updatedPost) => axios.patch(`${url}/${id}`,updatedPost);
+const postsUrl = '/posts';
 
-export const deletePost = (id) => axios.delete(`${url}/${id}`);
+export const fetchPosts = () => API.get(postsUrl);
 
-export const likePost = (id) => axios.patch(`${url}/${id}/likePost`);
+export const createPost = (newPost) => API.post(postsUrl, newPost)
+
+export const updatePost = (id, updatedPost) => API.patch(`${postsUrl}/${id}`, updatedPost);
+
+export const deletePost = (id) => API.delete(`${postsUrl}/${id}`);
+
+export const likePost = (id) => API.patch(`${postsUrl}/${id}/likePost`);
+
+const authUrl = '/users';
+
+export const signIn = (formData) => API.post(`${authUrl}/signin`, formData);
+
+export const signUp = (formData) => API.post(`${authUrl}/signup`, formData);
+
