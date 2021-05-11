@@ -36,6 +36,7 @@ const Navbar = () => {
             <Toolbar className={classes.toolbar}>
                 {user && (user.profileObj || user.result) ? (
                     <div className={classes.profile}>
+                        <div className={classes.profileName}>
                         <Avatar
                             className={classes.purple}
                             alt={user.profileObj ? user.profileObj.name : user.result.name}
@@ -45,6 +46,7 @@ const Navbar = () => {
                         <Typography className={classes.userName} variant="h6">
                             {user.profileObj ? user.profileObj.name : user.result.name}
                         </Typography>
+                        </div>
                         <Button variant="contained" className={classes.logout} color="secondary" onClick={logout}>Logout</Button>
                     </div>
                 ) : (

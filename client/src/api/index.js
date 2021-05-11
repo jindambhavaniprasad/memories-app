@@ -1,14 +1,13 @@
 import axios from 'axios'
+import { backendURL } from '../constants/actionTypes';
 
-const API = axios.create({ baseURL: 'http://localhost:5000' })
+const API = axios.create({ baseURL: backendURL })
 
 API.interceptors.request.use((req) => {
     console.log(localStorage.getItem('profile'));
     if (localStorage.getItem('profile')) {
         req.headers.Authorization = `Bearer ${JSON.parse(localStorage.getItem('profile')).token}`;
-        console.log(req.headers.Authorization)
     }
-
     return req;
 });
 

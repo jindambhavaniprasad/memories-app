@@ -7,3 +7,5 @@ export const actionTypes = {
     AUTH: 'AUTH',
     LOGOUT: 'LOGOUT'
 }
+
+export const backendURL = 'https://memories-lite-project.herokuapp.com'

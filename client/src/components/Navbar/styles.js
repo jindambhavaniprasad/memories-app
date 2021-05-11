@@ -20,7 +20,7 @@ export default makeStyles((theme) => ({
     },
     toolbar: {
         display: 'flex',
-        justifyContent: 'flex-end',
+        justifyContent: 'center',
         width: '400px',
     },
     profile: {
@@ -31,13 +31,45 @@ export default makeStyles((theme) => ({
     userName: {
         display: 'flex',
         alignItems: 'center',
+        marginLeft: '5px'
     },
     brandContainer: {
         display: 'flex',
         alignItems: 'center',
     },
+    profileName: {
+        display: "flex",
+        alignItems: 'center'
+    },
     purple: {
         color: theme.palette.getContrastText(deepPurple[500]),
         backgroundColor: deepPurple[500],
     },
+    login: {
+        display:'flex',
+        justifyContent: 'center'
+    },
+    [theme.breakpoints.down('sm')]: {
+        appBar: {
+            flexDirection: 'column',
+            justifyContent: 'space-evenly',
+            alignItems: 'center',
+        },
+    },
+    [theme.breakpoints.down('xs')]: {
+        profile: {
+            flexDirection: 'column',
+            justifyContent: 'space-between',
+            alignItems: 'center'
+        },
+        logout: {
+            width: '100px'
+        },
+        heading: {
+            fontSize: '45px'
+        },
+        profileName: {
+            marginBottom: '10px'
+        }
+    }
 }));
