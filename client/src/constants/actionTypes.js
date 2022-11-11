@@ -8,4 +8,4 @@ export const actionTypes = {
     LOGOUT: 'LOGOUT'
 }
 
-export const backendURL = 'https://memories-lite-project.herokuapp.com'
+export const backendURL = 'https://memories-lite-api.onrender.com'
